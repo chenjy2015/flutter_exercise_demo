@@ -76,6 +76,5 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
   assets:
-    - images/2.0x/ic_console.png
     - images/2.0x/ic_login.png
     - images/3.0x/ic_start_page.png

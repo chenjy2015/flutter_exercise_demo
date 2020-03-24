@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutterapptest/Constant.dart';
-import 'package:flutterapptest/DecorationUtils.dart';
-import 'package:flutterapptest/style/TextStyles.dart';
-import 'package:flutterapptest/utils/Toast.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutterapptest/constant.dart';
+import 'package:flutterapptest/decoration_utils.dart';
+import 'package:flutterapptest/style/text_styles.dart';
 
-import 'Global.dart';
+import 'global.dart';
+import 'utils/shared_utils.dart';
 
 typedef void OnLoginClick();
+
 
 class LoginStateWidget extends StatefulWidget {
   @override
@@ -35,7 +35,18 @@ class LoginState extends State<LoginStateWidget> {
   }
 
   void _doLogin() {
-    print("loging...");
+    SharedUtil.set(Constant.KEY_ACCOUNT, account, (account) {
+      print('start login set account : $account');
+    });
+    SharedUtil.set(Constant.KEY_PASSWORD, password, (password) {
+      print('start login set password : $password');
+    });
+    SharedUtil.get(Constant.KEY_ACCOUNT, (account) {
+      print('start login get account : $account');
+    });
+    SharedUtil.get(Constant.KEY_PASSWORD, (password) {
+      print('start login get password : $password');
+    });
   }
 
   @override
@@ -68,7 +79,7 @@ class LoginState extends State<LoginStateWidget> {
               flex: 0,
             ),
             new Expanded(
-              child: new LoginButton(),
+              child: new LoginButton(onLoginClick: _doLogin),
               flex: 0,
             ),
             new Expanded(
@@ -181,7 +192,12 @@ class LoginButton extends StatelessWidget {
   LoginButton({Key key, this.onLoginClick}) : super(key: key);
 
   void _doLogin() {
-    Toast.show('start login ');
+    SharedUtil.get("user", (value) {
+      print('start login get User : $value');
+    });
+    SharedUtil.set("user", 123, (value) {
+      print('start login set User : $value');
+    });
   }
 
   @override
@@ -195,7 +211,7 @@ class LoginButton extends StatelessWidget {
 //            width: 120,
 //            height: 120,
           ),
-          onPressed: _doLogin),
+          onPressed: onLoginClick),
       width: 90,
       height: 90,
       margin: EdgeInsets.all(16.0),

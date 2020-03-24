@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:flutterapptest/Constant.dart';
+import 'package:flutterapptest/constant.dart';
 
 class ColorUtils {
   static Color hexToColor(String hexString, {String alphaChannel = 'FF'}) {

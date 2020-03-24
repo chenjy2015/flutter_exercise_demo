@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapptest/Constant.dart';
+import 'package:flutterapptest/constant.dart';
 
 void main() => runApp(MyApp());
 

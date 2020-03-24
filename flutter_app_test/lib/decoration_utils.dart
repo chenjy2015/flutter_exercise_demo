@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'ColorUtils.dart';
+import 'color_utils.dart';
 
 class DecorationUtils {
   static InputDecoration getLoginAccountInputDecoration() {

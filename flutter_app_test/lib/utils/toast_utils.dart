@@ -3,7 +3,7 @@ import 'dart:ui' as prefix0;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../Global.dart';
+import '../global.dart';
 
 class Toast {
   static void show(String message, {int duration}) {
